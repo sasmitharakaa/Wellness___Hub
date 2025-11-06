@@ -4,7 +4,7 @@ import {
     Calendar,
     Award,
     Users,
-    Building2,
+    Leaf, 
     TrendingUp,
     Handshake,
     Star,
@@ -12,24 +12,31 @@ import {
     Target,
     Eye,
     CheckCircle,
-    GanttChartSquare,
-    Home,
-    Globe,
-    MapPin
+    UtensilsCrossed, 
+    Heart, 
+    Droplet, 
+    Flower2, 
+    Zap as Energy,
+    BookOpen,
+    Quote
 } from 'lucide-react'
 
-// --- Color Configuration (Updated to use full Tailwind classes) ---
-const PRIMARY_COLOR_CLASS = 'text-blue-500'
-const SECONDARY_COLOR_CLASS = 'text-cyan-600'
-const PRIMARY_ACCENT_CLASS = 'bg-blue-500/10 border-blue-500/20'
-const GRADIENT_CLASS = 'bg-gradient-to-r from-blue-500 via-blue-500 to-cyan-600'
-const ACCENT_TEXT_CLASS = 'bg-gradient-to-r from-blue-500 via-blue-500 to-cyan-600 bg-clip-text text-transparent'
-const CTA_TEXT_COLOR_CLASS = 'text-blue-500' // Used for the button text in FutureGoals
+// --- Core Configuration ---
+const PRIMARY_COLOR_CLASS = 'text-green-400'
+const SECONDARY_COLOR_CLASS = 'text-teal-600'
+const PRIMARY_ACCENT_CLASS = 'bg-green-500/10 border-green-500/20'
+const GRADIENT_CLASS = 'bg-gradient-to-r from-green-400 via-green-400 to-teal-600'
+const ACCENT_TEXT_CLASS = 'bg-gradient-to-r from-green-400 via-green-400 to-teal-600 bg-clip-text text-transparent'
+const CTA_TEXT_COLOR_CLASS = 'text-teal-600' 
+const FOUNDER_NAME = 'Hasanki Nimthara'
+const UNIVERSITY_DETAIL = 'University of Colombo, Faculty of International Relations'
 
+// Main component that combines all sections
 const About = () => {
     return (
-        <div className="bg-black">
+        <div id="about" className="bg-black">
             <AboutHero />
+            <FounderQuote />
             <Timeline />
             <MissionVision />
             <Achievements />
@@ -39,7 +46,9 @@ const About = () => {
     )
 }
 
+// ----------------------------------------------------------------------
 // --- Hero Section ---
+// ----------------------------------------------------------------------
 const AboutHero = () => {
     const ref = useRef(null)
     const { scrollYProgress } = useScroll({
@@ -56,10 +65,10 @@ const AboutHero = () => {
                 style={{ y, opacity }}
                 className="absolute inset-0 z-0"
             >
-                {/* New Image/Theme for Real Estate */}
+                {/* Background Image: Placeholder for a calming, high-quality wellness shot */}
                 <img
-                    src="https://images.unsplash.com/photo-1592595896551-11885f817109?q=80&w=1920&auto=format&fit=crop"
-                    alt="Modern cityscape and office"
+                    src="https://images.unsplash.com/photo-1544984243-7724d499e078?q=80&w=1920&auto=format&fit=crop"
+                    alt="Calm, natural setting for wellness"
                     className="w-full h-full object-cover object-center opacity-30"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
@@ -72,29 +81,27 @@ const AboutHero = () => {
                     transition={{ duration: 0.8 }}
                     className="max-w-4xl"
                 >
-                    {/* Updated: Used PRIMARY_ACCENT_CLASS and PRIMARY_COLOR_CLASS constants */}
                     <div className={`inline-flex items-center gap-2 ${PRIMARY_ACCENT_CLASS} rounded-full px-4 py-2 mb-6`}>
-                        <Calendar className={`w-4 h-4 ${PRIMARY_COLOR_CLASS}`} />
-                        <span className={`text-sm font-medium ${PRIMARY_COLOR_CLASS}`}>Established 1995</span>
+                        <Heart className={`w-4 h-4 ${PRIMARY_COLOR_CLASS}`} />
+                        <span className={`text-sm font-medium ${PRIMARY_COLOR_CLASS}`}>Founded by {FOUNDER_NAME}</span>
                     </div>
 
                     <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight">
                         Our Story
                         <span className={`block ${ACCENT_TEXT_CLASS}`}>
-                            Built on Market Expertise
+                            Built on a Holistic Vision
                         </span>
                     </h1>
 
                     <p className="text-xl md:text-2xl text-gray-400 mb-8 leading-relaxed">
-                        From a dedicated local broker to a premier national agency, our foundation 
-                        is built on unparalleled market knowledge and client trust.
+                        WellnessHub was born from the commitment of {FOUNDER_NAME}, an undergraduate of **{UNIVERSITY_DETAIL}**, to empower women through comprehensive, restorative health solutions.
                     </p>
 
                     <div className="grid sm:grid-cols-3 gap-6">
                         {[
-                            { icon: <Award />, value: '25+', label: 'Years in Real Estate' },
-                            { icon: <Users />, value: '50', label: 'Expert Agents' },
-                            { icon: <Home />, value: '1.5K+', label: 'Properties Sold' }
+                            { icon: <Award />, value: '5+', label: 'Years of Dedicated Study' },
+                            { icon: <Users />, value: '100+', label: 'Clients Guided to Wellness' },
+                            { icon: <Leaf />, value: '4', label: 'Core Pillars of Restoration' }
                         ].map((stat, idx) => (
                             <motion.div
                                 key={idx}
@@ -103,7 +110,6 @@ const AboutHero = () => {
                                 transition={{ delay: 0.5 + idx * 0.1 }}
                                 className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6"
                             >
-                                {/* Updated: Used PRIMARY_COLOR_CLASS constant */}
                                 <div className={`${PRIMARY_COLOR_CLASS} mb-3`}>{stat.icon}</div>
                                 <div className="text-3xl font-black text-white mb-1">{stat.value}</div>
                                 <div className="text-gray-400 text-sm">{stat.label}</div>
@@ -115,8 +121,38 @@ const AboutHero = () => {
         </section>
     )
 }
+
 // ----------------------------------------------------------------------
-// --- Timeline ---
+// --- Founder Quote Section (New Addition for Personal Touch) ---
+// ----------------------------------------------------------------------
+const FounderQuote = () => {
+    const ref = useRef(null)
+    const isInView = useInView(ref, { once: true, margin: "-100px" })
+
+    return (
+        <section ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-950">
+            <div className="max-w-4xl mx-auto text-center">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.8 }}
+                    className="relative p-8 md:p-12 border-l-4 border-green-400 bg-slate-900 rounded-xl shadow-xl"
+                >
+                    <Quote className={`w-10 h-10 absolute top-4 left-4 ${ACCENT_TEXT_CLASS} opacity-50`} />
+                    <p className="text-2xl italic text-gray-300 mb-6 mt-4 leading-relaxed">
+                        "My journey began with the simple realization that women deserve a dedicated space for holistic healing. We don't just treat symptoms; we restore the inner balance, empowering you to live a life of energy and purpose."
+                    </p>
+                    <footer className={`text-right text-lg font-semibold ${PRIMARY_COLOR_CLASS}`}>
+                        — {FOUNDER_NAME}
+                    </footer>
+                </motion.div>
+            </div>
+        </section>
+    )
+}
+
+// ----------------------------------------------------------------------
+// --- Timeline (Wellness Milestones) ---
 // ----------------------------------------------------------------------
 const Timeline = () => {
     const ref = useRef(null)
@@ -124,46 +160,39 @@ const Timeline = () => {
 
     const milestones = [
         {
-            year: "1995",
-            title: "Founding & First Sale",
-            description: "Our founder, Elena, opened the first office focusing on revitalizing the downtown residential market. Our first client was a happy couple purchasing their first home.",
-            image: "https://images.unsplash.com/photo-1544984243-7724d499e078?q=80&w=600&auto=format&fit=crop",
-            icon: <Building2 />
-        },
-        {
-            year: "2005",
-            title: "Commercial Expansion",
-            description: "Recognizing a market gap, we expanded into commercial real estate, facilitating the lease of three major corporate office towers.",
-            image: "https://images.unsplash.com/photo-1502691763134-c7885b5cc450?q=80&w=600&auto=format&fit=crop",
-            icon: <TrendingUp />
-        },
-        {
-            year: "2010",
-            title: "Tech-Forward Approach",
-            description: "We launched our state-of-the-art virtual tour technology and data analytics platform, giving clients a decisive edge in negotiations.",
-            image: "https://images.unsplash.com/photo-1588200618450-343555bb0579?q=80&w=600&auto=format&fit=crop",
-            icon: <GanttChartSquare />
-        },
-        {
-            year: "2018",
-            title: "Regional Presence",
-            description: "Opened branch offices in two neighboring metro areas, solidifying our reputation as the region's leading full-service agency.",
-            image: "https://images.unsplash.com/photo-1557426719-fa30c926c04b?q=80&w=600&auto=format&fit=crop",
-            icon: <MapPin />
-        },
-        {
             year: "2020",
-            title: "Community Development",
-            description: "Partnered with local city council to develop affordable housing initiatives, successfully placing 50 families into stable homes.",
-            image: "https://images.unsplash.com/photo-1510972504997-7e61e687e812?q=80&w=600&auto=format&fit=crop",
-            icon: <Handshake />
+            title: "Academic Foundation",
+            description: `The concept begins during ${FOUNDER_NAME}'s studies at ${UNIVERSITY_DETAIL}, focusing on the intersection of mental wellbeing and societal empowerment.`,
+            
+            icon: <BookOpen />
+        },
+        {
+            year: "2022",
+            title: "Holistic Certification",
+            description: "Completed key certifications in advanced mindfulness practices and specialized women's nutritional guidance, formalizing the service offerings.",
+         
+            icon: <Award />
+        },
+        {
+            year: "2023",
+            title: "Digital Platform Launch",
+            description: "WellnessHub's online consultation platform and personalized planning tool went live, allowing for remote guidance and support.",
+             
+            icon: <UtensilsCrossed />
         },
         {
             year: "2024",
-            title: "Achieved Luxury Tier",
-            description: "Officially entered the luxury market, securing the exclusive listing for the historic 'River View Estate.' Our team grew to 50 elite agents.",
-            image: "https://images.unsplash.com/photo-1628109923812-74728f328f65?q=80&w=600&auto=format&fit=crop",
-            icon: <Star />
+            title: "Community Workshops",
+            description: "Hosted the first series of successful 'Inner Equilibrium' workshops, focusing on energy restoration and stress relief for professional women.",
+            
+            icon: <Users />
+        },
+        {
+            year: "Present",
+            title: "Commitment to Growth",
+            description: "Expanded our content library and personalized programs, with a focus on sustainable, long-term vitality for clients globally.",
+            
+            icon: <TrendingUp />
         }
     ]
 
@@ -176,15 +205,14 @@ const Timeline = () => {
                     className="text-center mb-20"
                 >
                     <h2 className="text-4xl lg:text-5xl font-black text-white mb-4">
-                        Our Legacy in Development
+                        The Journey to Equilibrium
                     </h2>
                     <p className="text-xl text-gray-400">
-                        A history of turning client aspirations into reality
+                        Milestones in holistic development and service
                     </p>
                 </motion.div>
 
                 <div className="relative">
-                    {/* Updated: Used GRADIENT_CLASS constant */}
                     <div className={`hidden lg:block absolute left-1/2 top-0 bottom-0 w-px ${GRADIENT_CLASS}`} />
 
                     <div className="space-y-16">
@@ -195,7 +223,6 @@ const Timeline = () => {
                                 index={idx} 
                                 isInView={isInView}
                                 isRight={idx % 2 !== 0}
-                                // Passed full class names, not just color strings
                                 primaryColorClass={PRIMARY_COLOR_CLASS}
                                 gradientClass={GRADIENT_CLASS}
                             />
@@ -207,7 +234,6 @@ const Timeline = () => {
     )
 }
 
-// Passed full class names to make Tailwind happy
 const TimelineCard = ({ milestone, index, isInView, isRight, primaryColorClass, gradientClass }) => {
     return (
         <motion.div
@@ -216,8 +242,8 @@ const TimelineCard = ({ milestone, index, isInView, isRight, primaryColorClass, 
             transition={{ delay: index * 0.2 }}
             className={`relative grid lg:grid-cols-2 gap-8 items-center ${isRight ? 'lg:grid-flow-dense' : ''}`}
         >
-            {/* Year Badge - Center on timeline (Updated: Used class constants) */}
-            <div className={`hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-24 h-24 ${gradientClass} rounded-full items-center justify-center shadow-lg shadow-blue-500/50`}>
+            {/* Year Badge - Center on timeline */}
+            <div className={`hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-24 h-24 ${GRADIENT_CLASS} rounded-full items-center justify-center shadow-lg shadow-green-500/50`}>
                 <div className="text-center">
                     <div className="text-2xl font-black text-white">{milestone.year}</div>
                 </div>
@@ -225,18 +251,14 @@ const TimelineCard = ({ milestone, index, isInView, isRight, primaryColorClass, 
     
             {/* Content */}
             <div className={`${isRight ? 'lg:col-start-2' : ''}`}>
-                {/* Updated: Used full class for hover border */}
-                <div className={`bg-slate-900 rounded-2xl p-8 border border-white/10 hover:border-blue-500/50 transition-all`}>
+                <div className={`bg-slate-900 rounded-2xl p-8 border border-white/10 hover:border-green-500/50 transition-all`}>
                     <div className="flex items-center gap-3 mb-4 lg:hidden">
-                        {/* Mobile Year Badge (Updated: Used GRADIENT_CLASS constant) */}
-                        <div className={`w-16 h-16 ${gradientClass} rounded-xl flex items-center justify-center text-white font-black text-xl`}>
+                        <div className={`w-16 h-16 ${GRADIENT_CLASS} rounded-xl flex items-center justify-center text-white font-black text-xl`}>
                             {milestone.year}
                         </div>
-                        {/* Updated: Used PRIMARY_COLOR_CLASS constant */}
                         <div className={`${primaryColorClass}`}>{milestone.icon}</div>
                     </div>
                     
-                    {/* Updated: Used PRIMARY_COLOR_CLASS constant */}
                     <div className={`hidden lg:block ${primaryColorClass} mb-4`}>{milestone.icon}</div>
                     <h3 className="text-2xl font-bold text-white mb-3">{milestone.title}</h3>
                     <p className="text-gray-400 leading-relaxed">{milestone.description}</p>
@@ -258,6 +280,7 @@ const TimelineCard = ({ milestone, index, isInView, isRight, primaryColorClass, 
     )
 }
 
+
 // ----------------------------------------------------------------------
 // --- Mission & Vision ---
 // ----------------------------------------------------------------------
@@ -269,20 +292,19 @@ const MissionVision = () => {
         {
             icon: <Target className="w-12 h-12" />,
             title: "Our Mission",
-            description: "To empower every client with data-driven insights and personalized service, ensuring they achieve their ideal real estate outcome—whether buying, selling, or investing.",
-            // Updated: Used full class names
-            color: "from-blue-500 to-cyan-600" 
+            description: "To empower every woman to reclaim her personal wellness journey, providing expert guidance and resources for mental, physical, and emotional restoration.",
+            color: "from-green-500 to-teal-600" 
         },
         {
             icon: <Eye className="w-12 h-12" />,
             title: "Our Vision",
-            description: "To set the regional standard for ethical and professional real estate services, recognized for our commitment to transparent transactions and enduring client relationships.",
-            color: "from-purple-500 to-pink-600"
+            description: "To be the trusted, primary resource for women's holistic health in the region, known for deep empathy, personalized care, and lasting results.",
+            color: "from-indigo-500 to-purple-600" 
         },
         {
-            icon: <Globe className="w-12 h-12" />,
+            icon: <Droplet className="w-12 h-12" />,
             title: "Our Philosophy",
-            description: "Real estate is local, but knowledge should be global. We combine hyper-local expertise with world-class service standards to deliver exceptional value.",
+            description: "Wellness is not a goal, but a practice. We emphasize sustainable habits, natural solutions, and the power of inner equilibrium over quick fixes.",
             color: "from-amber-500 to-yellow-600"
         }
     ]
@@ -322,12 +344,12 @@ const Achievements = () => {
     const isInView = useInView(ref, { once: true })
 
     const achievements = [
-        { icon: <Award />, title: "Top Selling Brokerage 2021-2024", org: "Regional Market Analysis" },
-        { icon: <Star />, title: "Client Satisfaction 5-Star Rated", org: "Google & Zillow Reviews" },
-        { icon: <Shield />, title: "Certified Luxury Property Specialist", org: "Luxury Home Institute" },
-        { icon: <Handshake />, title: "Trusted Community Partner Award", org: "Local Chamber of Commerce" },
-        { icon: <CheckCircle />, title: "100% Client Referral Rate", org: "Internal Audit" },
-        { icon: <TrendingUp />, title: "Highest Avg. Sale Price in County", org: "MLS Data" }
+        { icon: <Award />, title: "Certified Holistic Wellness Coach", org: "Global Wellness Alliance" },
+        { icon: <Flower2 />, title: "Advanced Certification in Mindfulness", org: "Mind-Body Institute" },
+        { icon: <Shield />, title: "Specialist in Women's Nutritional Science", org: "Clinical Nutrition Body" },
+        { icon: <Handshake />, title: "Featured on Local Wellness Podcasts", org: "Community Health Spotlight" },
+        { icon: <CheckCircle />, title: "98% Positive Client Feedback", org: "Internal Audit" },
+        { icon: <Energy />, title: "Expertise in Stress & Energy Restoration", org: "Continuing Education" }
     ]
 
     return (
@@ -339,10 +361,10 @@ const Achievements = () => {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl lg:text-5xl font-black text-white mb-4">
-                        Recognition & Credentials
+                        Credentials & Expertise
                     </h2>
                     <p className="text-xl text-gray-400">
-                        Our commitment to excellence is backed by industry honors and data.
+                        Our guidance is rooted in certified knowledge and deep personal dedication.
                     </p>
                 </motion.div>
 
@@ -353,9 +375,8 @@ const Achievements = () => {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={isInView ? { opacity: 1, scale: 1 } : {}}
                             transition={{ delay: idx * 0.1 }}
-                            className={`bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-blue-500/50 transition-all`}
+                            className={`bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-green-500/50 transition-all`}
                         >
-                            {/* Updated: Used PRIMARY_COLOR_CLASS constant */}
                             <div className={`${PRIMARY_COLOR_CLASS} mb-4`}>{achievement.icon}</div>
                             <h3 className="text-lg font-bold text-white mb-2">{achievement.title}</h3>
                             <p className="text-sm text-gray-500">{achievement.org}</p>
@@ -382,11 +403,8 @@ const Community = () => {
                         initial={{ opacity: 0, x: -50 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                     >
-                        <img
-                            src="https://images.unsplash.com/photo-1577561914275-c999ec76f92c?q=80&w=800&auto=format&fit=crop"
-                            alt="Community event and local giving"
-                            className="rounded-3xl shadow-2xl"
-                        />
+                        {/* Community Image: Placeholder for a person meditating or doing yoga outdoors */}
+                       
                     </motion.div>
 
                     <motion.div
@@ -395,20 +413,19 @@ const Community = () => {
                         className="space-y-6"
                     >
                         <h2 className="text-4xl lg:text-5xl font-black text-white mb-6">
-                            Investing in Local Futures
+                            Building a Stronger Community
                         </h2>
                         <p className="text-xl text-gray-400 leading-relaxed">
-                            We believe a strong neighborhood is the best investment. Our work extends 
-                            beyond closing deals to actively building better communities.
+                            True wellness extends beyond the individual. We are committed to fostering a supportive, knowledgeable community around women's health.
                         </p>
 
                         <div className="space-y-4">
                             {[
-                                "Sponsoring local park renovations and green initiatives",
-                                "Providing pro-bono real estate consulting for local non-profits",
-                                "Annual scholarship fund for high school students entering trade school",
-                                "Hosting first-time homebuyer seminars free of charge",
-                                "Actively supporting affordable housing development projects"
+                                "Hosting free monthly online workshops on managing modern stress",
+                                "Partnering with local women's shelters to provide pro-bono wellness sessions",
+                                "Creating a private forum for ongoing client support and shared experiences",
+                                "Collaborating with local professionals (therapists, trainers) for comprehensive care",
+                                "Advocating for better holistic health education access for women"
                             ].map((item, idx) => (
                                 <motion.div
                                     key={idx}
@@ -436,7 +453,6 @@ const FutureGoals = () => {
     return (
         <section className="py-24 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
-                {/* Updated: Used GRADIENT_CLASS constant */}
                 <div className={`relative ${GRADIENT_CLASS} rounded-3xl p-12 md:p-16 overflow-hidden`}>
                     <div className="absolute inset-0 opacity-20">
                         <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
@@ -445,19 +461,20 @@ const FutureGoals = () => {
 
                     <div className="relative text-center">
                         <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-                            The Next Chapter: Innovation
+                            Join the Movement for Vitality
                         </h2>
                         <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-                            We're pioneering the use of AI in property valuation, expanding our global investment 
-                            network, and committing to 100% sustainable office operations.
+                            Our future involves expanding our digital course offerings, hosting international retreats, and continuing our mission to reach women who need guidance most.
                         </p>
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            // Updated: Used CTA_TEXT_COLOR_CLASS constant
-                            className={`bg-white ${CTA_TEXT_COLOR_CLASS} px-10 py-4 rounded-xl font-bold text-lg hover:bg-black hover:text-white transition-colors`}
+                            className={`bg-white ${CTA_TEXT_COLOR_CLASS} px-10 py-4 rounded-xl font-bold text-lg hover:bg-black hover:text-white transition-colors border border-transparent hover:border-white`}
                         >
-                            See Our Current Projects
+                            <span className="flex items-center gap-2">
+                                <Calendar className="w-5 h-5" />
+                                Book Your Initial Consultation
+                            </span>
                         </motion.button>
                     </div>
                 </div>

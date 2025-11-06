@@ -1,43 +1,67 @@
 import { motion } from 'framer-motion'
-// Using lucide-react icons relevant to Real Estate
-import { Home, Building2, Users, Briefcase, Globe, Mail, Phone, MapPin } from 'lucide-react'
-import { Facebook, Twitter, Instagram } from 'lucide-react' // Social media icons remain useful
+// Icons relevant to WellnessHub
+import { 
+  Leaf, 
+  Heart, 
+  Flower2, 
+  Calendar, 
+  ShieldCheck, 
+  Mail, 
+  Phone, 
+  MapPin, 
+  BookOpen, 
+  Zap as Energy 
+} from 'lucide-react' 
+import { Facebook, Twitter, Instagram } from 'lucide-react' 
+
+// --- Color Configuration (Must match the main theme) ---
+const PRIMARY_COLOR = 'green-400' 
+const SECONDARY_COLOR = 'teal-600' 
+const ACCENT_GRADIENT_CLASS = `bg-gradient-to-r from-${PRIMARY_COLOR} to-${SECONDARY_COLOR}`
+const ACCENT_TEXT_CLASS = `bg-gradient-to-r from-${PRIMARY_COLOR} to-${SECONDARY_COLOR} bg-clip-text text-transparent`
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
-  // Updated structure for a Real Estate website
+  // Updated structure for a Wellness website
   const footerSections = [
     {
       title: 'Quick Links',
-      // Links based on your request: home, projects, testimonials, about, contact us
+      // Links matching the main page sections
       links: [
-        { text: 'Home', icon: <Home className="w-4 h-4" /> },
-        { text: 'Projects', icon: <Building2 className="w-4 h-4" /> },
-        { text: 'Testimonials', icon: <Users className="w-4 h-4" /> },
-        { text: 'About Us', icon: <Briefcase className="w-4 h-4" /> },
-        { text: 'Contact Us', icon: <Mail className="w-4 h-4" /> }
+        { text: 'Home', icon: <Leaf className="w-4 h-4" /> },
+        { text: 'Services', icon: <Flower2 className="w-4 h-4" /> },
+        { text: 'Expertise', icon: <ShieldCheck className="w-4 h-4" /> },
+        { text: 'Blog', icon: <BookOpen className="w-4 h-4" /> },
+        { text: 'Contact', icon: <Mail className="w-4 h-4" /> }
       ]
     },
     {
-      title: 'Popular Locations',
-      // Real Estate specific links
-      links: ['New York City', 'Miami Beach', 'Los Angeles', 'Seattle', 'Denver']
+      title: 'Our Focus',
+      // Wellness specific links
+      links: [
+        'Mindfulness', 
+        'Nutrition', 
+        'Stress Relief', 
+        'Energy Restoration', 
+        'Holistic Care'
+      ]
     },
     {
       title: 'Contact Info',
-      // Contact info remains similar, but updated for Real Estate
+      // CONTACT INFO UPDATED HERE
       links: [
-        { icon: <Phone className="w-4 h-4" />, text: '+1 (800) 555-REAL' },
-        { icon: <Mail className="w-4 h-4" />, text: 'contact@realestatename.com' },
-        { icon: <MapPin className="w-4 h-4" />, text: '456 Property Ave, Suite 101, NY' }
+        { icon: <Phone className="w-4 h-4" />, text: '0702001194' },
+        { icon: <Mail className="w-4 h-4" />, text: 'hasankinimthara@gmail.com' },
+        { icon: <MapPin className="w-4 h-4" />, text: '789 Harmony Place, Colombo, LK' }
       ]
     }
   ]
 
   // Configuration for the main company name and logo
-  const companyName = 'REALESTATE PRO'
-  const brandIcon = <Building2 className="w-6 h-6 text-white" /> // Swapped Wrench for Building2
+  const companyName = 'WellnessHub'
+  const founderName = 'Hasanki Nimthara'
+  const brandIcon = <Heart className="w-6 h-6 text-white" /> 
 
   return (
     <footer className="bg-slate-900 border-t border-slate-800">
@@ -49,17 +73,16 @@ const Footer = () => {
               <motion.div
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
-                // Changed gradient colors for a more luxurious/professional feel
-                className="bg-gradient-to-r from-blue-500 to-cyan-600 p-2 rounded-lg"
+                className={`${ACCENT_GRADIENT_CLASS} p-2 rounded-lg`}
               >
                 {brandIcon}
               </motion.div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-cyan-600 bg-clip-text text-transparent">
+              <span className={`text-xl font-bold ${ACCENT_TEXT_CLASS}`}>
                 {companyName}
               </span>
             </div>
             <p className="text-gray-400 text-sm">
-              Your expert partner in finding the perfect property. Connecting dreams with addresses.
+              Your partner in achieving inner equilibrium. Dedicated to women's wellbeing and holistic vitality.
             </p>
             <div className="flex space-x-4">
               {[Facebook, Twitter, Instagram].map((Icon, index) => (
@@ -68,8 +91,7 @@ const Footer = () => {
                   href="#"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
-                  // Adjusted hover color to match the new gradient theme
-                  className="bg-slate-800 p-2 rounded-full text-gray-400 hover:text-blue-500 hover:bg-slate-700 transition-all"
+                  className={`bg-slate-800 p-2 rounded-full text-gray-400 hover:text-${PRIMARY_COLOR} hover:bg-slate-700 transition-all`}
                 >
                   <Icon className="w-5 h-5" />
                 </motion.a>
@@ -87,20 +109,21 @@ const Footer = () => {
                     {/* Check if the link object has an icon (for Quick Links & Contact Info) */}
                     {typeof link === 'object' && 'text' in link ? (
                       <a
-                        href={`#${link.text.toLowerCase().replace(/[\s&]+/g, '-')}`}
-                        className="text-gray-400 hover:text-blue-500 transition-colors text-sm flex items-center space-x-2"
+                        // Use mailto: for email and tel: for phone number for actual functionality
+                        href={link.icon.type === Mail ? `mailto:${link.text}` : (link.icon.type === Phone ? `tel:${link.text}` : `#`)}
+                        className={`text-gray-400 hover:text-${PRIMARY_COLOR} transition-colors text-sm flex items-center space-x-2`}
                       >
-                        {link.icon || null} {/* Render icon if available */}
+                        {link.icon || null}
                         <span>{link.text}</span>
                       </a>
                     ) : (
-                      // Handle simple string links (for Popular Locations)
+                      // Handle simple string links (for Our Focus)
                       <a
                         href={`#${link.toLowerCase().replace(' ', '-')}`}
-                        className="text-gray-400 hover:text-blue-500 transition-colors text-sm flex items-center space-x-2"
+                        className={`text-gray-400 hover:text-${PRIMARY_COLOR} transition-colors text-sm flex items-center space-x-2`}
                       >
-                         {/* We can add a subtle bullet or icon here for aesthetics if needed */}
-                         <span className='w-1 h-1 bg-gray-600 rounded-full mr-2'></span>
+                        {/* We use a subtle bullet or icon here for aesthetics */}
+                        <span className='w-1 h-1 bg-gray-600 rounded-full mr-2'></span>
                         <span>{link}</span>
                       </a>
                     )}
@@ -111,9 +134,12 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom Bar: Updated with founder name */}
         <div className="border-t border-slate-800 mt-12 pt-8 text-center text-gray-400 text-sm">
-          <p>© {currentYear} {companyName}. All rights reserved. Built with professionalism and precision.</p>
+          <p>
+            &copy; {currentYear} {companyName}. All rights reserved. 
+            <span className="block mt-1">Founder: {founderName}.</span>
+          </p>
         </div>
       </div>
     </footer>
