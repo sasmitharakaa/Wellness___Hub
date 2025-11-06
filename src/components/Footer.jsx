@@ -53,7 +53,7 @@ const Footer = () => {
       links: [
         { icon: <Phone className="w-4 h-4" />, text: '0702001194' },
         { icon: <Mail className="w-4 h-4" />, text: 'hasankinimthara@gmail.com' },
-        { icon: <MapPin className="w-4 h-4" />, text: '789 Harmony Place, Colombo, LK' }
+        { icon: <MapPin className="w-4 h-4" />, text: 'Rmbukkana road,Kegalle' }
       ]
     }
   ]
