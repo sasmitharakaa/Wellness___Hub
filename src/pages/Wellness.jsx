@@ -86,7 +86,7 @@ const HeroSection = () => {
                 >
                     <div className={`inline-flex items-center gap-2 ${PRIMARY_BG_CLASS}/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6`}>
                         <MessageSquare className={`w-4 h-4 ${PRIMARY_COLOR_CLASS}`} />
-                        <span className={`text-sm font-medium ${PRIMARY_COLOR_CLASS}`}>WellnessHub Education Series</span>
+                        <span className={`text-sm font-medium ${PRIMARY_COLOR_CLASS}`}>ENH3155 Education Series</span>
                     </div>
 
                     <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight">

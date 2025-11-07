@@ -385,7 +385,7 @@ const Navbar = () => {
                                         Confidential Support Available
                                     </div>
                                     <div className={`${PRIMARY_COLOR_TEXT} font-medium`}>
-                                        info@wellnesshub.org
+                                        info@enh3155.org
                                     </div>
                                 </motion.div>
                                 

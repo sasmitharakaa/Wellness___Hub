@@ -60,7 +60,7 @@ const Footer = () => {
 
   // Configuration for the main company name and logo
   const companyName = 'ENH 3155'
-  // const founderName = 'Hasanki N'
+  const founderName = 'enh'
   const brandIcon = <Heart className="w-6 h-6 text-white" /> 
 
   return (

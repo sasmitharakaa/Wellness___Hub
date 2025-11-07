@@ -55,7 +55,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black text-white leading-none tracking-tighter">
-              <span className={`${ACCENT_TEXT_CLASS}`}>WellnessHub</span>.
+              <span className={`${ACCENT_TEXT_CLASS}`}>ENH3155</span>.
               <br />
               Your Inner
               <br />

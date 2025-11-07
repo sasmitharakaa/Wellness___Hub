@@ -94,7 +94,7 @@ const AboutHero = () => {
                     </h1>
 
                     <p className="text-xl md:text-2xl text-gray-400 mb-8 leading-relaxed">
-                        WellnessHub was born from the commitment of {FOUNDER_NAME}, an undergraduate of **{UNIVERSITY_DETAIL}**, to empower women through comprehensive, restorative health solutions.
+                        <ENH3155></ENH3155> was born from the commitment of {FOUNDER_NAME}, an undergraduate of **{UNIVERSITY_DETAIL}**, to empower women through comprehensive, restorative health solutions.
                     </p>
 
                     <div className="grid sm:grid-cols-3 gap-6">
@@ -176,7 +176,7 @@ const Timeline = () => {
         {
             year: "2023",
             title: "Digital Platform Launch",
-            description: "WellnessHub's online consultation platform and personalized planning tool went live, allowing for remote guidance and support.",
+            description: "ENH3155's online consultation platform and personalized planning tool went live, allowing for remote guidance and support.",
              
             icon: <UtensilsCrossed />
         },
