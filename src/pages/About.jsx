@@ -94,7 +94,7 @@ const AboutHero = () => {
                     </h1>
 
                     <p className="text-xl md:text-2xl text-gray-400 mb-8 leading-relaxed">
-                        <ENH3155></ENH3155> was born from the commitment of {FOUNDER_NAME}, an undergraduate of **{UNIVERSITY_DETAIL}**, to empower women through comprehensive, restorative health solutions.
+                        was born from the commitment of {FOUNDER_NAME}, an undergraduate of **{UNIVERSITY_DETAIL}**, to empower women through comprehensive, restorative health solutions.
                     </p>
 
                     <div className="grid sm:grid-cols-3 gap-6">

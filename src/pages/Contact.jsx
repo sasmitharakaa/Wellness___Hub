@@ -49,7 +49,7 @@ const ContactHero = () => {
                 >
                     <div className={`inline-flex items-center gap-2 ${PRIMARY_BG_CLASS}/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6`}>
                         <MessageSquare className={`w-4 h-4 ${PRIMARY_COLOR_CLASS}`} />
-                        <span className={`text-sm font-medium ${PRIMARY_COLOR_CLASS}`}>ENH3155 Support</span>
+                        <span className={`text-sm font-medium ${PRIMARY_COLOR_CLASS}`}>WellnessHub Support</span>
                     </div>
 
                     <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight">
@@ -60,11 +60,7 @@ const ContactHero = () => {
                     </h1>
 
                     <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-<<<<<<< HEAD
-                        Please use the contact details below to reach out to consultant for all inquiries regarding <ENH3155></ENH3155>.
-=======
                         Please use the contact details below to reach out to **Hasanki** for all inquiries regarding WellnessHub.
->>>>>>> parent of cae9cf0 (updated)
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -128,7 +124,7 @@ const ContactInfo = () => {
         {
             icon: <MessageSquare className="w-8 h-8" />,
             title: "General Information",
-            primary: "ENH3155 Support",
+            primary: "WellnessHub Support",
             secondary: "We're committed to your well-being.",
             action: null,
             color: "from-red-500 to-pink-600"

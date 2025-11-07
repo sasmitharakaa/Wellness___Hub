@@ -59,13 +59,11 @@ const Footer = () => {
   ]
 
   // Configuration for the main company name and logo
-<<<<<<< HEAD
-  const companyName = 'ENH 3155'
-  const founderName = 'enh'
-=======
+
+
   const companyName = 'WellnessHub'
   const founderName = 'Hasanki Nimthara'
->>>>>>> parent of cae9cf0 (updated)
+
   const brandIcon = <Heart className="w-6 h-6 text-white" /> 
 
   return (
