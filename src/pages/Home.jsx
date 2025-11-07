@@ -83,7 +83,7 @@ const HeroSection = () => {
                   Founder's Mission
               </p>
               <p className="text-sm text-gray-400 italic">
-            As a consultant , Iam an undergraduate of the University of Colombo, Faculty of International Relations. This platform is my commitment to empowering women through comprehensive wellness solutions.
+                  I am Hasanki Nimthara, an undergraduate of the University of Colombo, Faculty of International Relations. This platform is my commitment to empowering women through comprehensive wellness solutions.
               </p>
           </motion.div>
 

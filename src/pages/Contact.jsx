@@ -55,12 +55,16 @@ const ContactHero = () => {
                     <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight">
                         Contact Us
                         <span className={`block ${ACCENT_TEXT_CLASS}`}>
-                            Direct Line to our consultant
+                            Direct Line to Hasanki
                         </span>
                     </h1>
 
                     <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+<<<<<<< HEAD
                         Please use the contact details below to reach out to consultant for all inquiries regarding <ENH3155></ENH3155>.
+=======
+                        Please use the contact details below to reach out to **Hasanki** for all inquiries regarding WellnessHub.
+>>>>>>> parent of cae9cf0 (updated)
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -71,16 +75,16 @@ const ContactHero = () => {
                             className={`${CTA_GRADIENT_CLASS} text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 ${CTA_HOVER_SHADOW} transition-all`}
                         >
                             <Phone className="w-5 h-5" />
-                            Call Consultant
+                            Call Hasanki: 0702001194
                         </motion.a>
                         <motion.a
-                            href="mailto:enh3155@gmail.com"
+                            href="mailto:hasankinimthara@gmail.com"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-2"
                         >
                             <Mail className="w-5 h-5" />
-                            Email <Consultant></Consultant>
+                            Email Hasanki
                         </motion.a>
                     </div>
                 </motion.div>
@@ -101,16 +105,16 @@ const ContactInfo = () => {
             icon: <Phone className="w-8 h-8" />,
             title: "Direct Phone",
             primary: "0702001194",
-            secondary: "Please ask for consultant.",
+            secondary: "Please ask for Hasanki.",
             action: "tel:+94702001194",
             color: "from-teal-500 to-green-600"
         },
         {
             icon: <Mail className="w-8 h-8" />,
             title: "Email Address",
-            primary: "enh3155@gmail.com",
+            primary: "hasankinimthara@gmail.com",
             secondary: "Best for non-urgent inquiries.",
-            action: "mailto:enh3155@gmail.com",
+            action: "mailto:hasankinimthara@gmail.com",
             color: "from-blue-500 to-cyan-600"
         },
         {
@@ -139,7 +143,7 @@ const ContactInfo = () => {
                         Contact Details
                     </h2>
                     <p className="text-lg text-gray-400">
-                        All calls and emails are directed to <Consultant></Consultant>.
+                        All calls and emails are directed to Hasanki.
                     </p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

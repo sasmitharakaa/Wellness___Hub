@@ -28,7 +28,7 @@ const PRIMARY_ACCENT_CLASS = 'bg-green-500/10 border-green-500/20'
 const GRADIENT_CLASS = 'bg-gradient-to-r from-green-400 via-green-400 to-teal-600'
 const ACCENT_TEXT_CLASS = 'bg-gradient-to-r from-green-400 via-green-400 to-teal-600 bg-clip-text text-transparent'
 const CTA_TEXT_COLOR_CLASS = 'text-teal-600' 
-// const FOUNDER_NAME = 'Hasanki Nimthara'
+const FOUNDER_NAME = 'Hasanki Nimthara'
 const UNIVERSITY_DETAIL = 'University of Colombo, Faculty of International Relations'
 
 // Main component that combines all sections

@@ -47,20 +47,25 @@ const Footer = () => {
         'Holistic Care'
       ]
     },
-    // {
-    //   title: 'Contact Info',
-    //   // CONTACT INFO UPDATED HERE
-    //   links: [
-    //     { icon: <Phone className="w-4 h-4" />, text: '0702001194' },
-    //     { icon: <Mail className="w-4 h-4" />, text: 'hasankinimthara@gmail.com' },
-    //     { icon: <MapPin className="w-4 h-4" />, text: 'Rmbukkana road,Kegalle' }
-    //   ]
-    // }
+    {
+      title: 'Contact Info',
+      // CONTACT INFO UPDATED HERE
+      links: [
+        { icon: <Phone className="w-4 h-4" />, text: '0702001194' },
+        { icon: <Mail className="w-4 h-4" />, text: 'hasankinimthara@gmail.com' },
+        { icon: <MapPin className="w-4 h-4" />, text: 'Rmbukkana road,Kegalle' }
+      ]
+    }
   ]
 
   // Configuration for the main company name and logo
+<<<<<<< HEAD
   const companyName = 'ENH 3155'
   const founderName = 'enh'
+=======
+  const companyName = 'WellnessHub'
+  const founderName = 'Hasanki Nimthara'
+>>>>>>> parent of cae9cf0 (updated)
   const brandIcon = <Heart className="w-6 h-6 text-white" /> 
 
   return (
